@@ -4,10 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+// AbilitySystemComponent h
+#include "AbilitySystemInterface.h"
 #include "MyCharacter.generated.h"
 
+
 UCLASS()
-class UNREAL_STUDY_API AMyCharacter : public ACharacter
+class UNREAL_STUDY_API AMyCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -21,5 +24,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	// AbilitySystemComponent return
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
 };
